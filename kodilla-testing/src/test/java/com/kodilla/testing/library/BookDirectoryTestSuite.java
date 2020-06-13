@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class BookDirectoryTestSuite {
@@ -83,4 +82,23 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
+    @Test
+    public void testListBooksWithConditionMoreThan2() {
+        // Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOf0Books = new ArrayList<Book>();
+        LibraryUser libraryUser = new LibraryUser("MIchał" , "kownacki" , "8547855");
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
+                .thenReturn(resultListOf0Books);
+
+
+        // When
+        List<Book> resultListOf0Books2 = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        // Then
+
+        assertEquals(0, resultListOf0Books2.size());
+
+    } 
 }
