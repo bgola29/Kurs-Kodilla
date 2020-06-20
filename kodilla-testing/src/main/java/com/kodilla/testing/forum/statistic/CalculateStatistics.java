@@ -12,22 +12,24 @@ public class CalculateStatistics {
         numberOfUser = statistics.usersNames().size();
         numberOfPost = statistics.postsCount();
         numberOfComments = statistics.commentsCount();
-        if (numberOfComments == 0) {
-            System.out.println("Wartosc nieprawidlowa");
-        }else { getAverageNumberOfPostPerUser();}
 
-        if (averageNumberOfCommentsPerUser == 0) {
-            System.out.println("Wartosc nieprawidłowa");
-        }else{}
-        if (averageNumberOfPostPerUser == 0) {
-            System.out.println("Wartosc nieprawidlowa");
-        }else {}
+        if (numberOfPost > 0 && numberOfUser > 0) {
+            averageNumberOfPostPerUser = numberOfPost / numberOfUser;
+        } else {
+            averageNumberOfPostPerUser =0 ;
+        }
 
+        if (numberOfComments > 0 && numberOfUser > 0) {
+            averageNumberOfCommentsPerUser = numberOfComments / numberOfUser;
+        } else {
+            averageNumberOfCommentsPerUser = 0 ;
+        }
 
-        averageNumberOfPostPerUser = statistics.postsCount() / numberOfUser;
-        averageNumberOfCommentsPerUser = statistics.commentsCount() / numberOfUser;
-        averageNumberOfCommentsPerPost = statistics.commentsCount() / statistics.postsCount();
-
+        if (numberOfComments > 0 && numberOfPost > 0) {
+            averageNumberOfCommentsPerPost = numberOfComments / numberOfPost;
+        } else {
+            averageNumberOfCommentsPerPost = 0;
+        }
     }
 
 

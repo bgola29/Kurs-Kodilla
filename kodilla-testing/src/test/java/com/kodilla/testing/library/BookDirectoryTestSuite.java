@@ -41,6 +41,7 @@ public class BookDirectoryTestSuite {
         }
         return resultList;
     }
+
     @Test
     public void testListBooksWithConditionMoreThan20() {
         // Given
@@ -66,6 +67,7 @@ public class BookDirectoryTestSuite {
         assertEquals(15, theListOfBooks15.size());
         assertEquals(0, theListOfBooks40.size());
     }
+
     @Test
     public void testListBooksWithConditionFragmentShorterThan3() {
         // Given
@@ -82,23 +84,46 @@ public class BookDirectoryTestSuite {
         assertEquals(0, theListOfBooks10.size());
         verify(libraryDatabaseMock, times(0)).listBooksWithCondition(anyString());
     }
+
     @Test
-    public void testListBooksWithConditionMoreThan2() {
+    public void testListBooksWithCondition0() {
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
         List<Book> resultListOf0Books = new ArrayList<Book>();
-        LibraryUser libraryUser = new LibraryUser("MIchał" , "kownacki" , "8547855");
+        LibraryUser libraryUser = new LibraryUser("MIchał", "kownacki", "8547855");
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
                 .thenReturn(resultListOf0Books);
 
 
         // When
-        List<Book> resultListOf0Books2 = bookLibrary.listBooksInHandsOf(libraryUser);
+        List<Book> resultListOf0Books1 = bookLibrary.listBooksInHandsOf(libraryUser);
 
         // Then
 
-        assertEquals(0, resultListOf0Books2.size());
+        assertEquals(0, resultListOf0Books1.size());
 
-    } 
+    }
+
+    @Test
+    public void testListBookksWhenCondition5() {
+        // Given
+        LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
+        BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
+        List<Book> resultListOf5Books = new ArrayList<Book>();
+        LibraryUser libraryUser = new LibraryUser("MIchał", "kownacki", "8547855");
+        when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
+                .thenReturn(resultListOf5Books);
+
+
+        //Wehn
+        List<Book> resultListOf5Books1 = bookLibrary.listBooksInHandsOf(libraryUser);
+
+        //Given
+        assertEquals(5, resultListOf5Books1.size());
+
+    }
+
+    @Test
+    public void test
 }
