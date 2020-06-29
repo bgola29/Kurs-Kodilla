@@ -1,12 +1,15 @@
 package com.kodilla.stream;
 
 
-import com.kodilla.stream.iterate.NumbersGenerator;
+import com.kodilla.stream.person.People;
+import org.w3c.dom.ls.LSOutput;
 
 public class StreamMain {
     public static void main(String[] args) {
 
-        System.out.println("Jest to pierwsze uruchomienie generatora w trybie stream");
-        NumbersGenerator.generateEven(25);
+        People.getList().stream()
+                .forEach(System.out::println);
+
+
     }
 }

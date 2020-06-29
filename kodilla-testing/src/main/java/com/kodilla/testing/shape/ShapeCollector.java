@@ -12,12 +12,13 @@ public class ShapeCollector {
 
     public boolean removeFigure(Shape shape) {
 
-        return geometricFigures.add(shape);
+        return geometricFigures.remove(shape);
     }
 
-    public void getFigure(int n) {
+    public Shape getFigure(int n) {
 
 
+        return geometricFigures.get(n);
     }
 }
 
