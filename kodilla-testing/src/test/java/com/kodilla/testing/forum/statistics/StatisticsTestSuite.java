@@ -36,7 +36,7 @@ public class StatisticsTestSuite {
 
 
     @Test
-    public void testCalcuateAdvStatisticsWhenPost1000() {
+    public void testCalculateAdvStatisticsWhenPost1000() {
 
         //Given
         Statistics statisticsMock = mock(Statistics.class);

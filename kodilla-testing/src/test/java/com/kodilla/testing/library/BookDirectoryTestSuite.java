@@ -98,7 +98,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBookksWhenCondition5() {
+    public void testListBooksWhenCondition5() {
 
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
@@ -116,7 +116,7 @@ public class BookDirectoryTestSuite {
     }
 
     @Test
-    public void testListBookksWhenCondition1() {
+    public void testListBooksWhenCondition1() {
 
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
