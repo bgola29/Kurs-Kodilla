@@ -10,15 +10,8 @@ public class ShapeCollector {
         return geometricFigures.add(shape);
     }
 
-    public boolean removeFigure(Shape shape) {
+    public boolean removeFigure(Shape shape) {return geometricFigures.remove(shape); }
 
-        return geometricFigures.remove(shape);
-    }
-
-    public Shape getFigure(int n) {
-
-
-        return geometricFigures.get(n);
-    }
+    public Shape getFigure(int n) {return geometricFigures.get(n);}
 }
 

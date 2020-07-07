@@ -11,6 +11,7 @@ import static org.mockito.Mockito.*;
 public class BookDirectoryTestSuite {
     @Test
     public void testListBooksWithConditionsReturnList() {
+
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -33,17 +34,9 @@ public class BookDirectoryTestSuite {
         assertEquals(4, theListOfBooks.size());
     }
 
-    private List<Book> generateListOfNBooks(int booksQuantity) {
-        List<Book> resultList = new ArrayList<Book>();
-        for (int n = 1; n <= booksQuantity; n++) {
-            Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
-            resultList.add(theBook);
-        }
-        return resultList;
-    }
-
     @Test
     public void testListBooksWithConditionMoreThan20() {
+
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -61,8 +54,8 @@ public class BookDirectoryTestSuite {
         List<Book> theListOfBooks0 = bookLibrary.listBooksWithCondition("ZeroBooks");
         List<Book> theListOfBooks15 = bookLibrary.listBooksWithCondition("Any title");
         List<Book> theListOfBooks40 = bookLibrary.listBooksWithCondition("FortyBooks");
-        // Then
 
+        // Then
         assertEquals(0, theListOfBooks0.size());
         assertEquals(15, theListOfBooks15.size());
         assertEquals(0, theListOfBooks40.size());
@@ -70,6 +63,7 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksWithConditionFragmentShorterThan3() {
+
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -87,6 +81,7 @@ public class BookDirectoryTestSuite {
 
     @Test
     public void testListBooksWithCondition0() {
+
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -95,18 +90,16 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
                 .thenReturn(resultListOf0Books);
 
-
         // When
         List<Book> resultListOf0Books1 = bookLibrary.listBooksInHandsOf(libraryUser);
 
         // Then
-
         assertEquals(0, resultListOf0Books1.size());
-
     }
 
     @Test
     public void testListBookksWhenCondition5() {
+
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -115,17 +108,16 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
                 .thenReturn(resultOF5Books);
 
-
-        //Wehn
+        //When
         List<Book> resultListOf5Books1 = bookLibrary.listBooksInHandsOf(libraryUser);
 
-        //Given
+        //Then
         assertEquals(resultOF5Books.size(), resultListOf5Books1.size());
-
     }
 
     @Test
     public void testListBookksWhenCondition1() {
+
         // Given
         LibraryDatabase libraryDatabaseMock = mock(LibraryDatabase.class);
         BookLibrary bookLibrary = new BookLibrary(libraryDatabaseMock);
@@ -134,11 +126,19 @@ public class BookDirectoryTestSuite {
         when(libraryDatabaseMock.listBooksInHandsOf(libraryUser))
                 .thenReturn(resultOF1Books);
 
-
-        //Wehn
+        // When
         List<Book> resultListOf5Books1 = bookLibrary.listBooksInHandsOf(libraryUser);
 
-        //Given
+        // Then
         assertEquals(resultOF1Books.size(), resultListOf5Books1.size());
+    }
+
+    private List<Book> generateListOfNBooks(int booksQuantity) {
+        List<Book> resultList = new ArrayList<Book>();
+        for (int n = 1; n <= booksQuantity; n++) {
+            Book theBook = new Book("Title " + n, "Author " + n, 1970 + n);
+            resultList.add(theBook);
+        }
+        return resultList;
     }
 }

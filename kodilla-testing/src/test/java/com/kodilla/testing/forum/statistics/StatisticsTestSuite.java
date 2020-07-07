@@ -16,6 +16,7 @@ import static org.mockito.Mockito.when;
 public class StatisticsTestSuite {
     @Test
     public void testCalculateAdvStatisticsWhenPost0() {
+
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         CalculateStatistics calculateStatistics1 = new CalculateStatistics();
@@ -24,8 +25,10 @@ public class StatisticsTestSuite {
         when(statisticsMock.postsCount()).thenReturn(0);
         when(statisticsMock.usersNames()).thenReturn(userName);
         when(statisticsMock.commentsCount()).thenReturn(3);
+
         //When
         calculateStatistics1.calculateAdvStatistics(statisticsMock);
+
         //Then
         assertEquals(0, calculateStatistics1.getAverageNumberOfPostPerUser(), 0.00001);
         assertEquals(0, calculateStatistics1.getAverageNumberOfCommentsPerPost(), 0.0001);
@@ -43,7 +46,6 @@ public class StatisticsTestSuite {
         when(statisticsMock.commentsCount()).thenReturn(1);
 
         //When
-
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
@@ -67,8 +69,8 @@ public class StatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(8, calculateStatistics.getAverageNumberOfCommentsPerUser() , 0.0001);
-        assertEquals(0, calculateStatistics.getAverageNumberOfCommentsPerPost() , 0.0001);
+        assertEquals(8, calculateStatistics.getAverageNumberOfCommentsPerUser(), 0.0001);
+        assertEquals(0, calculateStatistics.getAverageNumberOfCommentsPerPost(), 0.0001);
     }
 
     @Test
@@ -85,8 +87,8 @@ public class StatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(0, calculateStatistics.getAverageNumberOfCommentsPerPost() , 0.00001);
-        assertEquals(3, calculateStatistics.getAverageNumberOfCommentsPerUser() , 0.00001);
+        assertEquals(0, calculateStatistics.getAverageNumberOfCommentsPerPost(), 0.00001);
+        assertEquals(3, calculateStatistics.getAverageNumberOfCommentsPerUser(), 0.00001);
     }
 
     @Test
@@ -103,12 +105,13 @@ public class StatisticsTestSuite {
         calculateStatistics.calculateAdvStatistics(statisticsMock);
 
         //Then
-        assertEquals(5, calculateStatistics.getAverageNumberOfCommentsPerPost() , 0.0001);
-        assertEquals(25, calculateStatistics.getAverageNumberOfCommentsPerUser() , 0.0001);
+        assertEquals(5, calculateStatistics.getAverageNumberOfCommentsPerPost(), 0.0001);
+        assertEquals(25, calculateStatistics.getAverageNumberOfCommentsPerUser(), 0.0001);
     }
 
     @Test
     public void testCalculateAdvStatisticsWhenUsers100() {
+
         //Given
         Statistics statisticsMock = mock(Statistics.class);
         CalculateStatistics calculateStatistics = new CalculateStatistics();

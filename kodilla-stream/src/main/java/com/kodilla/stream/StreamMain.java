@@ -1,14 +1,20 @@
 package com.kodilla.stream;
 
-import com.kodilla.stream.person.People;
+import com.kodilla.stream.forumUser.Forum;
+import com.kodilla.stream.forumUser.ForumUser;
+
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class StreamMain {
     public static void main(String[] args) {
-        People.getList().stream()
-                .map(String::toUpperCase)
-                .filter(s -> s.length() > 11)
-                .map(s -> s.substring(0, s.indexOf(' ') + 2) + ".")
-                .filter(s -> s.substring(0, 1).equals("M"))
-                .forEach(System.out::println);
+        Forum forum = new Forum();
+        Map<Integer , ForumUser> theResultMapOfForumUser = forum.getUserList().stream()
+                .filter(forumUser -> forumUser.getDateOfBirth() < 2000)
+                .filter(forumUser -> forumUser.getSex() == 'M')
+                .filter(forumUser -> forumUser.getNumberOfPost() < 1)
+                .collect(Collectors.toMap(ForumUser::getUniqueUserIdentifier , forumUser -> forumUser));
+
+        System.out.println("");
     }
 }
