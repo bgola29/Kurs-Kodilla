@@ -1,8 +1,15 @@
 package com.kodilla.stream.word;
 
-public class Country {
-    public void getPeopleQuantity(){
+import java.math.BigDecimal;
 
+public class Country {
+    BigDecimal numberOfPeople;
+
+    public Country(BigDecimal numberOfPeople) {
+        this.numberOfPeople = numberOfPeople;
     }
 
+    public BigDecimal getNumberOfPeople() {
+        return numberOfPeople;
+    }
 }

@@ -40,11 +40,11 @@ public final class ForumUser {
         return Objects.hash(getUserName(), getUniqueUserIdentifier(), getSex(), getDateOfBirth(), getNumberOfPost());
     }
 
-    public ForumUser(String userName, int uniqueUserIdentifier, char sex, int dayOfBirth, int monthOfBirth, int yearOfBirth, int numberOfPost) {
+    public ForumUser(String userName, int uniqueUserIdentifier, char sex, int yearOfBirth, int monthOfBirth, int dayOfBirth, int numberOfPost) {
         this.userName = userName;
         this.uniqueUserIdentifier = uniqueUserIdentifier;
         this.sex = sex;
-        this.dateOfBirth = LocalDate.of(dayOfBirth , monthOfBirth , yearOfBirth);
+        this.dateOfBirth = LocalDate.of(yearOfBirth , monthOfBirth , dayOfBirth );
         this.numberOfPost = numberOfPost;
     }
 
