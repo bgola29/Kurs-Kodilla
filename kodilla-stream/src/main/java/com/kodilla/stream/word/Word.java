@@ -4,7 +4,7 @@ package com.kodilla.stream.word;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Stream;
+
 
 public class Word {
     List<Continent> continentList = new ArrayList<>();
@@ -14,11 +14,14 @@ public class Word {
     }
 
     public BigDecimal getPeopleQuantity() {
-        return
+        return continentList.stream()
+                .flatMap(continent -> continent.getCountryList().stream())
+                .map(country -> getPeopleQuantity())
+                .reduce(BigDecimal.ZERO, (sum, i) -> sum = sum.add(i));
     }
 
-    public List<Continent> addingContinents(Continent continent) {
-        return getContinentList(continent);
+    public boolean addingContinents(Continent continent) {
+        return continentList.add(continent);
     }
 }
 
