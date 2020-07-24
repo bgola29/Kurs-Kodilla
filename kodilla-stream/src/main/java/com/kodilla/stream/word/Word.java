@@ -16,7 +16,7 @@ public class Word {
     public BigDecimal getPeopleQuantity() {
         return continentList.stream()
                 .flatMap(continent -> continent.getCountryList().stream())
-                .map(country -> getPeopleQuantity())
+                .map(country -> country.getNumberOfPeople())
                 .reduce(BigDecimal.ZERO, (sum, i) -> sum = sum.add(i));
     }
 
