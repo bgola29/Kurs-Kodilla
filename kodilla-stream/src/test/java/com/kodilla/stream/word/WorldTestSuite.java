@@ -19,11 +19,18 @@ public class WorldTestSuite {
         europe.addingCountry(poland);
         europe.addingCountry(england);
         europe.addingCountry(spain);
-
+        Continent americaPn = new Continent();
+        word.addingContinents(americaPn);
+        Country usa = new Country(new BigDecimal(1));
+        Country canada = new Country(new BigDecimal(1));
+        Country alaska = new Country(new BigDecimal(1));
+        americaPn.addingCountry(usa);
+        americaPn.addingCountry(canada);
+        americaPn.addingCountry(alaska);
         // When
         BigDecimal result = word.getPeopleQuantity();
 
         // Then
-       // Assert.assertEquals(new BigDecimal("187") , result);
+        Assert.assertEquals(new BigDecimal("190") , result);
     }
 }
