@@ -13,7 +13,7 @@ public class StreamMain {
         Map<Integer , ForumUser> theResultMapOfForumUser = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getDateOfBirth().isBefore(LocalDate.now().minusYears(20)))
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .filter(forumUser -> forumUser.getNumberOfPost() < 1)
+                .filter(forumUser -> forumUser.getNumberOfPost() > 0)
                 .collect(Collectors.toMap(ForumUser::getUniqueUserIdentifier , forumUser -> forumUser));
 
         System.out.println("User List : " + theResultMapOfForumUser.size());
