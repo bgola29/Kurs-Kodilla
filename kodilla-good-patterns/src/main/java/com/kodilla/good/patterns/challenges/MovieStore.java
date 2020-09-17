@@ -34,7 +34,6 @@ public class MovieStore {
         String showMovie = movieStore.getMovies()
                 .entrySet()
                 .stream()
-               // .map(o -> o.getKey() + " : " + o.getValue())
                 .flatMap(o -> o.getValue().stream())
                 .collect(Collectors.joining(" ! "));
         System.out.println(showMovie);
