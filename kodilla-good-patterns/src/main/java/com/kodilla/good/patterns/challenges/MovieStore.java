@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.challenges;
 
+import java.text.StringCharacterIterator;
 import java.util.*;
 
 import java.util.stream.Collectors;
@@ -33,7 +34,8 @@ public class MovieStore {
         String showMovie = movieStore.getMovies()
                 .entrySet()
                 .stream()
-                .map(String::valueOf)
+               // .map(o -> o.getKey() + " : " + o.getValue())
+                .flatMap(o -> o.getValue().stream())
                 .collect(Collectors.joining(" ! "));
         System.out.println(showMovie);
 
