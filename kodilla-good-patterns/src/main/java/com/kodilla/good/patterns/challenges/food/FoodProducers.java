@@ -5,9 +5,9 @@ import java.util.Map;
 public interface FoodProducers {
     void inform();
 
-    Map<String,Integer> products();
+    Map<String, Integer> products();
 
-    void process();
+    void process(String enterProduct);
 
     boolean contractExecuted();
 

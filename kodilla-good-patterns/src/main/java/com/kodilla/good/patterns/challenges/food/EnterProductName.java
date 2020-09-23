@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class EnterProductName {
     private Scanner scanner = new Scanner(System.in);
 
-    void enterNameOfWantedProduct() {
+    String enterNameOfWantedProduct() {
         System.out.println("Wprowadź nazwe wybranego produku");
-        scanner.nextLine();
+       String selectedProduct = scanner.nextLine();
+        System.out.println("Wybrałeś produkt :" + selectedProduct);
+        return selectedProduct;
     }
 }

@@ -1,10 +1,9 @@
 package com.kodilla.good.patterns.challenges.food;
 
 
-import com.kodilla.good.patterns.challenges.food.FoodProducers;
-
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 public class ExtraFoodShop implements FoodProducers {
     @Override
@@ -22,12 +21,13 @@ public class ExtraFoodShop implements FoodProducers {
 
 
     @Override
-    public void process() {
-        System.out.println("Trwa proces dodawania produktu");
+    public void process(String enterProduct) {
+        System.out.println("Trwa proces zakupu produktu :"+ enterProduct);
     }
 
     @Override
     public boolean contractExecuted() {
-        return true;
+        Random random = new Random();
+        return random.nextBoolean();
     }
 }
