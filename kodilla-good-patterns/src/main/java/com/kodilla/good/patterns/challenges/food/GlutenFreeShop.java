@@ -21,7 +21,7 @@ public class GlutenFreeShop implements FoodProducers {
 
     @Override
     public void process(String enterProduct) {
-        System.out.println("trwa proces zakupu :" + enterProduct);
+        System.out.println("the purchase is in progress :" + enterProduct);
     }
 
     @Override

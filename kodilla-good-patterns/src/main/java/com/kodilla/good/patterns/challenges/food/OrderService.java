@@ -9,7 +9,7 @@ public class OrderService {
 
     public void orderProcess() {
 
-        System.out.println("zaczynamy proces");
+        System.out.println("we start the process");
         foodProducers.inform();
         foodProducers.products()
                 .entrySet()
@@ -19,9 +19,9 @@ public class OrderService {
         String enterProduct = enterProductName.enterNameOfWantedProduct();
         foodProducers.process(enterProduct);
         if (foodProducers.contractExecuted()) {
-            System.out.println("Zamówienie zostało zrealizowane");
+            System.out.println("The order has been completed");
         } else {
-            System.out.println("Zamówienie nie zostało zrealizowane");
+            System.out.println("The order has not been processed");
         }
     }
 

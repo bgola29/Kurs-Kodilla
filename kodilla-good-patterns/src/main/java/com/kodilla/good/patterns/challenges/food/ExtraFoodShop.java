@@ -22,7 +22,7 @@ public class ExtraFoodShop implements FoodProducers {
 
     @Override
     public void process(String enterProduct) {
-        System.out.println("Trwa proces zakupu produktu :"+ enterProduct);
+        System.out.println("the purchase is in progress :"+ enterProduct);
     }
 
     @Override
